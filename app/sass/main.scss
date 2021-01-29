@@ -24,6 +24,7 @@ b{
 *,*::after,*::before{box-sizing: border-box;}
 body{
     font-family: $regularFont;
+    min-width: 300px;
 }
 .container{
     max-width: 1550px;
@@ -42,6 +43,7 @@ body{
     background: url(/img/shadow.png) no-repeat center left,#4C1DD2;
     height: 100%;
     min-height: 100vh;
+    overflow: hidden;
 }
 .main__plus-icon{
     position: absolute;
@@ -115,7 +117,7 @@ body{
         flex-grow: 1;
     }
     &__burger{
-        width: 40px;
+        width: 35px;
         position: absolute;
         top: -80px;
         right: 15px;
@@ -249,6 +251,7 @@ body{
     gap: 13px;
     position: absolute;
     padding: 5%;
+    transition: 1s;
     &_row{
         grid-template-areas: 'img count'
                              'img text';
@@ -312,6 +315,7 @@ body{
         }
         &__info{
             justify-content: start;
+            padding-bottom: 15px;
         }
         &__title{
             font-size: 2.5rem;
@@ -375,6 +379,7 @@ body{
     .about-company{
         &__container{
             flex-direction: column-reverse;
+            padding-top: 50px;
         }
         &__charts{
             width: 227px;
@@ -383,9 +388,6 @@ body{
     }
 }
 @media( max-width: 515px){
-    .header{
-        overflow: hidden;
-    }
     .nav{
         &__menu{
             position: absolute;
@@ -393,17 +395,54 @@ body{
             left: calc(100% + 15px);
             transition: 1s;
             flex-direction: column;
+            border-radius: 10px 0 0 10px;
+            padding: 5px 15px;
+            z-index: 10;
+            background-color: #4d4da8;
+            right: -15px;
             &_show{
                 left: 110px;
             }
         }
         &__burger{
-        top: 15px;
+        top: 20px;
         left: calc(100% - 50px);
         transition: 1s;
             &_show{
                 left: 75px;
             }
         }
+    }
+    .menu__item{
+        padding: 5px 0;
+    }
+    .about-company__charts{
+        max-width: 227px;
+        width: 59%;
+    }
+    .panel{
+        &__img{
+            width: 25px;
+        }
+        &__count{
+            font-size: .8rem;
+        }
+        &__text{
+            font-size: .5rem;
+        }
+        &_row{
+            min-width: 100px;
+        }
+    }
+    .contacts__phone{
+        font-size: .8rem;
+    }
+    .contacts__whatsapp{
+        width: 135px;
+        height: 40px;
+        padding: 0 15px;
+    }
+    .whatsapp-btn__text{
+        font-size: .8rem;
     }
 }
