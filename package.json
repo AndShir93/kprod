@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel dist/script -d dist/script/script.js --presets es2015"
   },
   "author": "Andrey",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
@@ -15,6 +22,7 @@
     "gulp-sass": "^4.0.2"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "bootstrap": "^4.4.1",
     "gulp-sass-glob": "^1.1.0",
     "jquery": "^3.4.1",

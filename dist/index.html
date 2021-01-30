@@ -8,18 +8,19 @@
     <title>Kprod</title>
 </head>
 <body>
-    <main class="main">
-        <img class="plus-icon main__plus-icon" src="/img/plus.svg" alt="Плюс">
-        <img class="plus-icon main__plus-icon" src="/img/plus.svg" alt="Плюс">
-        <img class="plus-icon main__plus-icon" src="/img/plus.svg" alt="Плюс">
-        <img class="ellipse-icon  main__ellipse-icon" src="/img/ellipse.svg" alt="Круг">
+    <div class="page">
+        <img class="plus-icon page__plus-icon" src="/img/plus.svg" alt="Плюс">
+        <img class="plus-icon page__plus-icon" src="/img/plus.svg" alt="Плюс">
+        <img class="plus-icon page__plus-icon" src="/img/plus.svg" alt="Плюс">
+        <img class="ellipse-icon  page__ellipse-icon" src="/img/ellipse.svg" alt="Круг">
+        <div class="line line_first"></div>
+        <div class="line line_second"></div>
+        <div class="line line_third"></div>
         <header class="header">
             <div class="header__nav-wrapper">
                 <nav class="nav header__nav">
                     <a href="/" class="logo header__logo">
-                        <object type="image/svg+xml" data="picture.svg">
-                            <img src="/img/logo.svg">
-                        </object>
+                        <img src="/img/logo.svg">
                     </a>
                     <ul class="menu nav__menu">
                         <li class="menu__item"><a class="menu__link" href="#">Услуги</a>       </li>
@@ -45,7 +46,7 @@
                 <div class="about-company__info">
                     <h1 class="about-company__title"><b>Разработка сайтов</b><br> под ключ</h1>
                     <p class="about-company__text">Разработаем проект для решения <br> задачи любой сложности</p>
-                    <form class="form">
+                    <form class="form about-company__form">
                         <input class="form__phone" type="tel" placeholder="+7 (999) 444 22-33" required>
                         <input class="form__button" type="button" value="Реализовать мою идею">
                     </form>
@@ -58,11 +59,19 @@
                             <img class="charts__girl" src="/img/girl.png" alt="Девушка">
                         </picture>
                         <img class="charts__rectangle" src="/img/rectangle.svg" alt="Треугольник">
-                        <img class="charts__graph" src="/img/graph.svg" alt="График">
-                        <div class="charts__panel panel panel_column panel_position_top">
-                            <img class="panel__img" src="/img/number-clients.svg" alt="Количество клиентов">
-                            <p class="panel__count">+80%</p>
-                            <p class="panel__text panel__text_center">К количеству <br> клиентов</p>
+                        <div class="charts__graph graph-chart">
+                            <div class="graph-chart__head">
+                                <img src="/img/graph-logo.svg" alt="Логотип графика" class="graph-chart__logo">
+                                <span class="graph-chart__title">Рост прибыли компании</span>
+                            </div>
+                            <object class="graph-chart__img" type="image/svg+xml" data="/img/graph.svg">
+                                <img src="/img/graph.svg">
+                            </object>
+                        </div>
+                        <div class="charts__panel panel panel_column panel-column panel_position_top">
+                            <img class="panel__img panel-column__img" src="/img/number-clients.svg" alt="Количество клиентов">
+                            <p class="panel__count panel-column__count">+80%</p>
+                            <p class="panel__text panel-column__text panel__text_center">К количеству <br> клиентов</p>
                         </div>
                         <div class="charts__panel panel panel_row panel_position_middle">
                             <img class="panel__img" src="/img/diagramm.svg" alt="Диаграмма">
@@ -74,7 +83,7 @@
                 </div>
             </div>
         </section>
-    </main>
-    <script src="script/main.js"></script>
+    </div>
+    <script src="script/main-es5.js"></script>
 </body>
 </html>

@@ -31,6 +31,23 @@ body{
     margin: 0 auto;
     padding: 0 175px;
 }
+.line{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: #5B2AED;
+    transition: 1s;
+    &_first{
+        left: 50%;
+    }
+    &_second{
+        left: 1%;
+    }
+    &_third{
+        left: 80%;
+    }
+}
 .whatsapp-btn{
     display: flex;
     background: #4F15F3;
@@ -39,15 +56,17 @@ body{
     align-items: center;
     justify-content: space-between;
 }
-.main{
-    background: url(/img/shadow.png) no-repeat center left,#4C1DD2;
+.page{
+    background: url(/img/shadow.png) no-repeat 700px center, url(/img/shadow.png) no-repeat -306px center,#4C1DD2;
     height: 100%;
     min-height: 100vh;
     overflow: hidden;
+    position: relative;
 }
-.main__plus-icon{
+.page__plus-icon{
     position: absolute;
     animation: scale-elem 2s infinite;
+    z-index: 2;
     &:nth-child(1){
         width: 14px;
         height: 14px;
@@ -69,7 +88,7 @@ body{
         animation-delay: 1s;
     }
 }
-.main__ellipse-icon{
+.page__ellipse-icon{
     width: 10px;
     height: 10px;
     position: absolute;
@@ -96,11 +115,14 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 5;
 }
 .header__nav{
     flex-basis: 686px;
 }
 .header__logo{
+    width: 49px;
     position: absolute;
     left: -90px;
 }
@@ -119,6 +141,7 @@ body{
     &__burger{
         width: 35px;
         position: absolute;
+        z-index: 6;
         top: -80px;
         right: 15px;
         transition: 1s;
@@ -152,16 +175,23 @@ body{
     }
 }
 .about-company{
+    &__form{
+        width: 100%;
+    }
     &__container{
         display: flex;
         justify-content: space-between;
         padding-top: 50px;
         gap: 50px;
+        position: relative;
+        z-index: 2;
     }
     &__info{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        width: 75%;
+        margin: 0 60px 0 0;
     }
     &__title{
         font-size: 3rem;
@@ -177,7 +207,9 @@ body{
         margin: 18px 0 30px 0;
     }
     &__charts{
-        width: 427px;
+        max-width: 427px;
+        width: 50%;
+        min-width: 200px;
         padding-bottom: 11%;
         position: relative;
     }
@@ -185,7 +217,6 @@ body{
 .form{
     display: flex;
     flex-wrap: wrap;
-    gap: 21px;
     &__phone{
         width: 284px;
         height: 56px;
@@ -195,6 +226,7 @@ body{
         font-size: 1.125rem;
         color: #BCBCBC;
         border: 0px;
+        margin: 0 21px 21px 0;
     }
     &__button{
         width: 335px;
@@ -230,6 +262,9 @@ body{
     }
     &__graph{
         position: absolute;
+        background: #fff;
+        border-radius: 25px;
+        padding: 6%;
         bottom: -21%;
         right: -14%;
         width: 74%;
@@ -246,8 +281,28 @@ body{
         width: 26%;
     }
 }
+.graph-chart{
+    width: 77%;
+    &__head{
+        display: flex;
+        align-items: center;
+        margin: 0 0 7% 0;
+    }
+    &__logo{
+        width: 21%;
+        margin: 0 7% 0 0;
+    }
+    &__title{
+        font-family: $mediumFont;
+        font-size: 1.125rem;
+    }
+    &__img{
+        width: 100%;
+    }
+}
 .panel{
     display: grid;
+    display: -ms-grid;
     gap: 13px;
     position: absolute;
     padding: 5%;
@@ -255,27 +310,39 @@ body{
     &_row{
         grid-template-areas: 'img count'
                              'img text';
+        -ms-grid-columns: auto 8% auto;
+        -ms-grid-rows: 1fr 1fr;
+        max-width: 185px;
         width: 67%;
+        min-width: 100px;
     }
     &_column{
         grid-template-areas:'img'
                             'count'
                             'text' ;
         justify-items: center;
+        -ms-grid-columns: auto 8% auto 8% auto;
         width: 37%;
     }
     &__img{
         grid-area: img;
+        -ms-grid-column: 1;
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 3;
         &_center{margin: 0 auto;}
     }
     &__count{
         font-size: 1.375rem;
         grid-area: count;
+        -ms-grid-column: 5;
+        -ms-grid-row: 1;
         &_center{text-align: center;}
     }
     &__text{
         font-size: .75rem;
         grid-area: text;
+        -ms-grid-column: 5;
+        -ms-grid-row: 5;
         &_center{text-align: center;}
     }
     &_position_top{
@@ -285,6 +352,27 @@ body{
     &_position_middle{
         top: 30%;
         right: -39%;
+    }
+}
+.panel-column{
+    display: grid;
+    display: -ms-grid;
+    -ms-grid-rows: auto 8% auto 8% auto;
+    &__img{
+        -ms-grid-row: 1;
+        margin: auto;
+    }
+    &__count{
+        -ms-grid-row: 5;
+        -ms-grid-column: 1;
+        text-align: center;
+        width: 100%;
+    }
+    &__text{
+        text-align: center;
+        -ms-grid-row: 9;
+        -ms-grid-column: 1;
+        width: 100%;
     }
 }
 @media(max-width: 1199px){
@@ -301,7 +389,7 @@ body{
         &__nav-wrapper{
             height: 120px;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: stretch;
             padding: 0 13%;
         }
@@ -314,7 +402,7 @@ body{
             padding-top: 50px;
         }
         &__info{
-            justify-content: start;
+            justify-content: flex-start;
             padding-bottom: 15px;
         }
         &__title{
@@ -343,6 +431,7 @@ body{
             top: -6%;
         }
     }
+    .graph-chart__title{font-size: .9rem;}
     .panel{
         gap: 8px;
         &__img{
@@ -388,6 +477,8 @@ body{
     }
 }
 @media( max-width: 515px){
+    .header__nav-wrapper{height: 100px;}
+    .header__nav{max-height: 60px;}
     .nav{
         &__menu{
             position: absolute;
@@ -405,7 +496,7 @@ body{
             }
         }
         &__burger{
-        top: 20px;
+        top: 12px;
         left: calc(100% - 50px);
         transition: 1s;
             &_show{
@@ -421,8 +512,10 @@ body{
         width: 59%;
     }
     .panel{
+        padding: 4%;
         &__img{
             width: 25px;
+            height: 25px;
         }
         &__count{
             font-size: .8rem;
@@ -432,8 +525,13 @@ body{
         }
         &_row{
             min-width: 100px;
+            right: -22%;
+        }
+        &_column{
+            min-width: 75px;
         }
     }
+    .panel-column__text{width: 60px;}
     .contacts__phone{
         font-size: .8rem;
     }
@@ -445,4 +543,22 @@ body{
     .whatsapp-btn__text{
         font-size: .8rem;
     }
+    .form{
+        &__phone{
+            height: 40px;
+            font-size: .8rem;
+            padding: 0 0 0 20px;
+        }
+        &__button{
+            height: 40px;
+            font-size: .8rem;
+        }
+    }
+    .panel_position_top{left: -22%;}
+    .charts__graph{right: -22%;}
+    .graph-chart__title{font-size: .7rem;}
+    .page__plus-icon:nth-child(1){left:25px}
+    .page__plus-icon:nth-child(2){left:auto;right: 20px;}
+    .page__plus-icon:nth-child(3){bottom: 125px;}
+    .page__ellipse-icon{left: 5%; top: 362px}
 }
