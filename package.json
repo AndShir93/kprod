@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel dist/script -d dist/script/script.js --presets es2015"
+    "build": "babel dist/script -d dist/script --presets es2015"
   },
   "author": "Andrey",
   "license": "ISC",
